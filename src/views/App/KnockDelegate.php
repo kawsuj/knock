@@ -5,7 +5,7 @@ namespace App;
 use Knock\KnockServices;
 
 /**
- * This class allows you to override any methods from Knock\KnockTrait which is used 
+ * This class allows you to override any methods from the Knock\KnockServices trait which is used 
  * by the Knock Facade to perform basic queries on the Knoc framework. You're free to 
  * explore this trait and override any methods you wish to tweak. For example, you may 
  * wish to override isKnockUser() to provide a different query to determine whether the 

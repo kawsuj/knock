@@ -42,7 +42,7 @@ class KnockServiceProvider extends ServiceProvider {
 	    ], 'knock');
 	     
 	    $this->publishes([
-	    		__DIR__.'/Config/' => config_path('knock.php')
+	    		__DIR__.'/Config/knock.php' => config_path('knock.php')
 	    ], 'knock');
 	}
 	
