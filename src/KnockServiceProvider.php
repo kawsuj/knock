@@ -41,6 +41,9 @@ class KnockServiceProvider extends ServiceProvider {
 	    		__DIR__.'/App/' => app_path('/')
 	    ], 'knock');
 	     
+	    $this->publishes([
+	    		__DIR__.'/Config/' => config_path('knock.php')
+	    ], 'knock');
 	}
 	
 	/**
