@@ -1,0 +1,30 @@
+{
+    "name": "kawsuj/knock",
+    "description": "Provides role-based application permissions for Laravel applications using security tags",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kawsu Jawara",
+            "email": "kawsuj@object-time.com"
+        }
+    ],
+    "keywords": [
+    	"permission",
+    	"role",
+    	"tag",
+    	"user",
+    	"security",
+    	"laravel"
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "^5.2",
+        "laravelcollective/html": "~5.0",
+        "yajra/laravel-datatables-oracle": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Knock\\": "src/"
+        }
+    }
+}
