@@ -62,7 +62,6 @@
 								
 								@if(Knock::hasRole('knock', 'user-administrator'))
 								<li><a href="{{ asset('/users') }}"><i class="knock-user-color fa fa-btn fa-users"></i>Users</a></li>
-								<li><a href="{{ asset('/knock/events') }}"><i class="knock-user-color fa fa-btn fa-bolt"></i>User Actions</a></li>
 								@endif
 							</ul>
 						</li>
