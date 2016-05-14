@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'User Actions')
 @section('breadcrumb')
-	<li><a href="{{asset('/home') }}">home</a></li>
+	<li><a href="{{asset('/knock/home') }}">home</a></li>
 	<li class="active">user-actions</li>
 @stop
 
@@ -12,18 +12,18 @@
 		<div class="panel panel-default" align="center">
 			<div class="zero-clipboard">
 				<div class="btn-clipboard-left">
-					<span class="knock-user-corner-label bw-color-3"><i class="fa fa-2x fa-bolt"></i>&nbsp;</span>
+					<span class="knock-user-corner-label knock-user-color"><i class="fa fa-2x fa-bolt"></i>&nbsp;</span>
 				</div>
 
 			</div>
 
-			<div class="panel-heading knock-panel-header bw-panel-admin-header bw-background-2">
-				<h2><span class="bw-color-3">User Actions</span></h2>
+			<div class="panel-heading knock-panel-header">
+				<h2><span class="knock-user-color">User Actions</span></h2>
 			</div>
 			<div class="panel-body">
 				<table id="events_table" class="table compact table-bordered table-condensed table-hover table-responsive" data-sort-name="time" data-sort-order="desc" data-cache="false" data-toggle="table" data-cache="true" data-page-list="[3, 4, 6, 8, 10]" data-pagination="true">
 				    <thead>
-				      <tr class="bw-table-header">
+				      <tr class="knock-table-header">
 				        <th>Event Code</th>
 				        <th>Details</th>
 				        <th>Transaction</th>
@@ -68,7 +68,7 @@
 	        "serverSide": "false",
 	        "order": [ 3, "desc" ],
 			"ajax"		: {
-				"url" : "{{action('\App\Http\Controllers\AuditController@getList')}}",
+				"url" : "{{action('\Knock\Http\Controllers\AuditController@getList')}}",
 				"type" : "POST",
 				"headers" : {
                     "X-CSRF-TOKEN" : "{{ csrf_token() }}"
@@ -76,7 +76,7 @@
 			},
 	        "columns": [
 	            { data: 'event_code', name: 'event_code' },
-	            { data: 'event_data', name: 'event_data', className: 'bw-event-details-col'},
+	            { data: 'event_data', name: 'event_data', className: 'knock-event-details-col'},
 	            { data: 'transaction', name: 'transaction' },
 	            { data: 'id', name: 'id' },
 	            { data: 'created_at', name: 'created_at' }

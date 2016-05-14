@@ -110,6 +110,12 @@ body {
 	background-color: #fa8005;
 }
 
+.knock-event-details-col{
+	width:50%;
+}
+
+
+
 /* ******** Colors ********** */
 .knock-user-color{
 	color: #009191;

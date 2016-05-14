@@ -98,7 +98,23 @@ class CreateKnockDatabase extends Migration{
 					$table->unique(['user_id', 'action_id']);
 				});
 		}
-			
+		
+		if(!Schema::hasTable('events')){
+			Schema::create('events', function (Blueprint $table) {
+				$table->increments('id');
+				$table->integer('transaction')->unsigned();
+				$table->string('event_code');
+				$table->mediumText('event_data');
+				$table->timestamps();
+			});
+		}
+		
+		if(!Schema::hasTable('transactions')){
+			Schema::create('transactions', function (Blueprint $table) {
+				$table->increments('id');
+				$table->timestamps();
+			});
+		}
 	}
 
 	/**
@@ -113,5 +129,7 @@ class CreateKnockDatabase extends Migration{
 		Schema::dropIfExists ('tags');
 		Schema::dropIfExists ('password_resets');
 		Schema::dropIfExists ('users');
+		Schema::dropIfExists('events');
+		Schema::dropIfExists('transactions');
 	}
 }
