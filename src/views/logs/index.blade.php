@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('title', 'User Actions')
+@extends('knock::layouts.app')
+@section('title', 'User Actions Log')
 @section('breadcrumb')
 	<li><a href="{{asset('/knock/home') }}">home</a></li>
 	<li class="active">user-actions</li>
@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="panel-heading knock-panel-header">
-				<h2><span class="knock-user-color">User Actions</span></h2>
+				<h2><span class="knock-user-color">User Actions Log</span></h2>
 			</div>
 			<div class="panel-body">
 				<table id="events_table" class="table compact table-bordered table-condensed table-hover table-responsive" data-sort-name="time" data-sort-order="desc" data-cache="false" data-toggle="table" data-cache="true" data-page-list="[3, 4, 6, 8, 10]" data-pagination="true">
