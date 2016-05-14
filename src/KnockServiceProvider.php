@@ -44,6 +44,9 @@ class KnockServiceProvider extends ServiceProvider {
 	    $this->publishes([
 	    		__DIR__.'/Config/knock.php' => config_path('knock.php')
 	    ], 'knock');
+	    
+	    //register the helper file
+	    require __DIR__.'/KnockHelpers.php';
 	}
 	
 	/**
@@ -53,9 +56,10 @@ class KnockServiceProvider extends ServiceProvider {
 	 */
 	public function register() {
 		$this->app->bind('knock', 'App\KnockDelegate');
-	
+		$this->app->bind('KnockHelpers', 'Knock\KnockHelpers');
 		config([
 				'config/knock.php',
 		]);
 	}
+	
 }
