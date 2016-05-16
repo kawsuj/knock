@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Http\Request;
-use Config;
 
 class AuthController extends Controller
 {
@@ -114,13 +113,13 @@ class AuthController extends Controller
 		}else{
 			Auth::login($this->create($request->all()));
 			//return redirect($this->redirectPath());
-			return redirect(asset('/knock/home'))->with('flash_message', 'User '.$request->get('email').' Created');	
+			return redirect(asset('/'))->with('flash_message', 'User '.$request->get('email').' Created');	
 		}
     }     
 	
     
     public function postLogin(Request $request){
-    	logEvent('user-logged-in', '[User='.$request->email.']');
+    	logEvent('user-logged-in', '[User='.$request->email.']'. ', User-Agent=['. $request->header('User-Agent').']');
     	return $this->login($request);
     }
        

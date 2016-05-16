@@ -22,7 +22,7 @@ class PasswordController extends Controller
 
     protected $linkRequestView = 'knock::auth.passwords.email';
     protected $resetView = 'knock::auth.passwords.reset';
-    protected $redirectPath = '/knock/home';
+    protected $redirectPath = '/home';
     
     /**
      * Create a new password controller instance.
