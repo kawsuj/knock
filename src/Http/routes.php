@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::resource('knock/tags', 'Knock\Http\Controllers\TagsController');
 	Route::resource('knock/tags.roles', 'Knock\Http\Controllers\RolesController');
 	Route::resource('knock/tags.roles.actions', 'Knock\Http\Controllers\ActionsController');
-	Route::resource('knock/events', 'Knock\Http\Controllers\AuditController');
+	Route::resource('knock/events', 'Knock\Http\Controllers\AuditController',['only' => ['index']]);
 	Route::resource('users', 'Knock\Http\Controllers\UsersController');
 	
 	Route::get('/login', 'Knock\Http\Controllers\Auth\AuthController@getLogin');

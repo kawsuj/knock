@@ -85,13 +85,19 @@
 	                        "X-CSRF-TOKEN" : "{{ csrf_token() }}"
 	                    }
 					},
-					
+				    createdRow: function( row, data, dataIndex ) {
+				        $( row ).find('td:eq(0)').attr('data-title', 'First Name:');
+				        $( row ).find('td:eq(1)').attr('data-title', 'Last Name:');
+				        $( row ).find('td:eq(2)').attr('data-title', 'Email:');
+				        $( row ).find('td:eq(3)').attr('data-title', 'Active:');
+				        $( row ).find('td:eq(4)').attr('data-title', 'Details:');
+				    },					
 					"columns": [
-						{ data: 'first_name', name: 'first_name', searchable: true, orderable: true},
-						{ data: 'last_name', name: 'last_name', searchable: true, orderable: true},
-						{ data: 'email', name: 'email', searchable: true, orderable: true},
-						{ data: 'active', name: 'active', searchable: false, orderable: false},
-						{ data: 'show', name: 'show', searchable: false, orderable: false}
+						{ data: 'first_name', name: 'first_name', searchable: true, orderable: true, className: 'knock-right-align'},
+						{ data: 'last_name', name: 'last_name', searchable: true, orderable: true, className: 'knock-right-align'},
+						{ data: 'email', name: 'email', searchable: true, orderable: true, className: 'knock-right-align'},
+						{ data: 'active', name: 'active', searchable: false, orderable: false, className: 'knock-right-align'},
+						{ data: 'show', name: 'show', searchable: false, orderable: false, className: 'knock-right-align'}
 					]        
 				});
 			makeSearchable('#users_table');

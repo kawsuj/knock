@@ -131,7 +131,7 @@ class UsersController extends Controller
     		return $model->active? "Yes" : "No";
     	})
     	->addColumn('show', function($model){
-    		return "<a href=".action('\Knock\Http\Controllers\UsersController@show',[$model->id])." role='button'><i class='".'knock-user-color fa fa-2x fa-btn fa-user'."'></i></a>";
+    		return "<a href=".action('\Knock\Http\Controllers\UsersController@show',[$model->id])." role='button'><i class='".'knock-user-color fa fa-2x fa-btn fa-ellipsis-h'."'></i></a>";
     	})
     	->make(true);
     }

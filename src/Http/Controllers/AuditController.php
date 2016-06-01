@@ -45,8 +45,9 @@ class AuditController extends Controller
      */
     public function show($id)
     {
+    	return redirect()->back();
 		if(Knock::hasRole('knock', 'user-administrator')){
-	        return view('knck::logs.show');
+	        return view('knock::logs.show');
 		}else{
 			return redirect('/');
 		}

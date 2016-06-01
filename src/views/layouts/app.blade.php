@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<title>Knock @yield('title')</title>
+		<title>{{Config::get('knock.apptitle')}} @yield('title')</title>
 		<link href="{{asset('/css/font-awesome.min.css')}}" rel='stylesheet' type='text/css'>
 		<link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
 		<link href="{{asset('/css/jquery.dataTables.min.css')}}" rel="stylesheet">
@@ -54,7 +54,7 @@
 						@if(Auth::user())
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-								<i class="fa fa-btn fa-gears"></i>Knock Settings</a>
+								<i class="fa fa-btn fa-gears"></i>Settings</a>
 							<ul class="dropdown-menu" role="menu">
 								@if(Knock::hasRole('knock', 'permission-administrator'))
 								<li><a href="{{ url('/knock/tags') }}"><i class="knock-tag-color fa fa-btn fa-tags"></i>Tags</a></li>
