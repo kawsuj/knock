@@ -11,7 +11,7 @@
                         {!! csrf_field() !!}
 
 		                <div align="center">
-		   					<img src="{{asset('/images/app_logo.png')}}" alt="" />
+		   					<img src="{{Config::get('knock.applogo')}}" alt="" />
 		                </div>
 		                <br><br><br>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
