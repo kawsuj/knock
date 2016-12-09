@@ -119,7 +119,7 @@ class AuthController extends Controller
 	
     
     public function postLogin(Request $request){
-    	logEvent('user-logged-in', '[User='.$request->email.']'. ', User-Agent=['. $request->header('User-Agent').']');
+    	logEvent('user-logged-in', '[User='.$request->email.']'. ', User-Agent=['. $request->header('User-Agent').']'. ', Client=['. getLocation().']');
     	return $this->login($request);
     }
        
