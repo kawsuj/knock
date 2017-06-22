@@ -10,6 +10,7 @@ use Carbon\Carbon;
  * 
  * @author Kawsu Jawara
  *
+ *
  */
 class UserAction extends Model
 {
