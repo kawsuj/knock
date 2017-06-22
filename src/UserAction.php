@@ -5,6 +5,11 @@ namespace Knock;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * 
+ * @author Kawsu Jawara
+ *
+ */
 class UserAction extends Model
 {
 	protected $table = 'users_actions';
