@@ -85,7 +85,9 @@ class CreateKnockDatabase extends Migration{
 					$table->integer('user_id')->unsigned();
 					$table->integer('action_id')->unsigned();
 					$table->timestamps();
-
+					$table->dateTime('valid_from'); 	//This User Action is valid from this date
+					$table->dateTime('valid_until');	//This User Action expires on this date
+								
 					$table->foreign('user_id')
 					->references('id')
 					->on('users')

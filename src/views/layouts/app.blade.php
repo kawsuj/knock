@@ -6,10 +6,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
 		<title>{{Config::get('knock.apptitle')}} @yield('title')</title>
-		<link href="{{asset('/css/font-awesome.min.css')}}" rel='stylesheet' type='text/css'>
-		<link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet">
-		<link href="{{asset('/css/jquery.dataTables.min.css')}}" rel="stylesheet">
-		<link href="{{asset('/css/knock.css')}}" rel='stylesheet' type='text/css'>
+		<link href="{{asset('css/font-awesome.min.css')}}" rel='stylesheet' type='text/css'>
+		<link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+		<link href="{{asset('css/jquery.dataTables.min.css')}}" rel="stylesheet">
+		<link href="{{asset('css/knock.css')}}" rel='stylesheet' type='text/css'>
 		<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 		<link href="{{asset(Config::get('knock.knockfavicon'))}}" rel="shortcut icon"/>
       	
@@ -38,12 +38,15 @@
 				</div>
 
 				<div class="collapse navbar-collapse" id="app-navbar-collapse">
+				
 					<!-- Left Side Of Navbar -->
-					@if(Auth::check())
-					<ul class="breadcrumb">
-						@yield('breadcrumb')
+					<ul class="nav navbar-nav navbar-left">				
+						@if(Auth::check())
+						<ul class="breadcrumb">
+							@yield('breadcrumb')
+						</ul>
+						@endif
 					</ul>
-					@endif
 
 					<!-- Right Side Of Navbar -->
 					<ul class="nav navbar-nav navbar-right">

@@ -4,8 +4,8 @@
 	<li><a href="{{asset('/knock/home') }}">home</a></li>
 	<li><a href="{{asset('/knock/tags') }}">tags</a></li>
 	<li><a href="{{asset('/knock/tags/'.$action->role->tag->id) }}">{{$action->role->tag->name}}</a></li>
-	<li><a href="{{asset('/knock/roles/'.$action->role->id) }}">{{$action->role->name}}</a></li>
-	<li class="active">edit-action</li>
+	<li><a href="{{asset('/knock/tags/'.$action->role->tag->id.'/roles/'.$action->role->id) }}">{{$action->role->name}}</a></li>
+	<li class="active">edit-user-action</li>
 @stop
 @section('content')
 
@@ -18,7 +18,7 @@
 						<span class="knock-action-corner-label knock-action-color"><i class="fa fa-hand-o-right"></i>&nbsp;ACTION</span>
 					</div>
 				</div>
-				<div class="panel-heading knock-panel-header"><h2>New Action</h2></div>
+				<div class="panel-heading knock-panel-header"><h2>New User-action</h2></div>
 				<div class="panel-body">
 
 					{!! Form::open(['method' => 'PATCH', 'url' => 'knock/tags/'.$action->role->tag->id.'/roles/'.$action->role->id.'/actions/'.$action->id]) !!}

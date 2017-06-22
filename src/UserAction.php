@@ -19,5 +19,14 @@ class UserAction extends Model
 		return $this->belongsTo(\Knock\Action::class, 'action_id');
 	}
 	
+	public function isValid(){
+		return $this->valid_from;
+	 	//$now = Carbon::now();
+	 	//$from = Carbon::parse($this->valid_from);
+		//$instance = static::createFromFormat('Y-n-j G:i:s',
+		//$until = Carbon::parse($this->valid_until);
+		//return $from <= Carbon::now() && Carbon::now() <
+	} 
+	
 
 }
