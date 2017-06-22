@@ -4,6 +4,7 @@ namespace Knock;
 // use App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 /**
  * 
@@ -24,14 +25,24 @@ class UserAction extends Model
 		return $this->belongsTo(\Knock\Action::class, 'action_id');
 	}
 	
-	public function isValid(){
-		return $this->valid_from;
-	 	//$now = Carbon::now();
-	 	//$from = Carbon::parse($this->valid_from);
-		//$instance = static::createFromFormat('Y-n-j G:i:s',
-		//$until = Carbon::parse($this->valid_until);
-		//return $from <= Carbon::now() && Carbon::now() <
+	public function isValid(){	
+	 	$now = Carbon::now();
+	 	$from = Carbon::createFromFormat('Y-n-j G:i:s', $this->valid_from);
+		if ($this->valid_until === null){
+			return ($now->diffInSeconds($from, false) <= 0);
+		}else{
+			$until = Carbon::createFromFormat('Y-n-j G:i:s', $this->valid_until);
+			return ($now->diffInSeconds($from, false) <= 0) && ($now->diffInSeconds($until, false) >= 0);
+		}
 	} 
 	
+	protected static function boot()
+	{
+		parent::boot();
+	
+		static::creating(function($userAction){
+			$userAction->valid_from = $userAction->created_at;
+		});
+	}
 
 }
