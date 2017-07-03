@@ -31,18 +31,14 @@ class UserAction extends Model
 		$result = false;
 	 	$now = Carbon::now();
 	 	$from = Carbon::createFromFormat('Y-n-j G:i:s', $this->valid_from);
-		if ($this->valid_until === null){
+		if ($this->valid_until == null){
 			$result = ($now->diffInSeconds($from, false) <= 0);
 		}else{
 			$until = Carbon::createFromFormat('Y-n-j G:i:s', $this->valid_until);
 			$result = ($now->diffInSeconds($from, false) <= 0) && ($now->diffInSeconds($until, false) >= 0);
 		}
 		
-		if ($result) {
-			return 'YESSS';
-		}else {
-			return 'NOOOO';
-		}
+		return $result;
 	} 
 	
 	protected static function boot()
