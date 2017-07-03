@@ -27,10 +27,9 @@ class UserAction extends Model
 	}
 	
 	public function isValid(){	
-		//return $this->valid_from;
-		$result = false;
 	 	$now = Carbon::now();
 	 	$from = Carbon::createFromFormat('Y-n-j G:i:s', $this->valid_from);
+<<<<<<< HEAD
 		if ($this->valid_until == null){
 			$result = ($now->diffInSeconds($from, false) <= 0);
 		}else{
@@ -39,6 +38,14 @@ class UserAction extends Model
 		}
 		
 		return $result;
+=======
+		if ($this->valid_until === null){
+			return ($now->diffInSeconds($from, false) <= 0);
+		}else{
+			$until = Carbon::createFromFormat('Y-n-j G:i:s', $this->valid_until);
+			return ($now->diffInSeconds($from, false) <= 0) && ($now->diffInSeconds($until, false) >= 0);
+		}
+>>>>>>> parent of a4fd54c... WIP
 	} 
 	
 	protected static function boot()
@@ -46,7 +53,7 @@ class UserAction extends Model
 		parent::boot();
 	
 		static::creating(function($userAction){
-			$userAction->valid_from = Carbon::createFromFormat('Y-n-j G:i:s', Carbon::now());
+			$userAction->valid_from = $userAction->created_at;
 		});
 	}
 
